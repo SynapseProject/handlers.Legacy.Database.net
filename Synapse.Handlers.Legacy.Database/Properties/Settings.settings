@@ -1,0 +1,57 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Synapse.Handlers.Legacy.Database.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">LweTpvRmOp8mBcW5grgIuqNrbz7ces0Q2F6pf0aThSI=</Value>
+    </Setting>
+    <Setting Name="PassPhrase" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">123456789012345</Value>
+    </Setting>
+    <Setting Name="SaltValue" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">12345678</Value>
+    </Setting>
+    <Setting Name="InitVector" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1234567890123456</Value>
+    </Setting>
+    <Setting Name="RegexErrorFilterSqlServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">((?=.*\bMsg\b)|(?=.*\bHResult\b))(?=.*\bLevel\b)(?=.*\bState\b)</Value>
+    </Setting>
+    <Setting Name="WorkRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SqlPlusPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SourceRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SourceFiles</Value>
+    </Setting>
+    <Setting Name="StagedRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SystemFiles\StagedFiles</Value>
+    </Setting>
+    <Setting Name="CachedRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">SystemFiles\CachedFiles</Value>
+    </Setting>
+    <Setting Name="ProcessedRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ProcessedFiles</Value>
+    </Setting>
+    <Setting Name="RegexErrorFilterOracleCompilation" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">(Warning:.*with compilation errors.)</Value>
+    </Setting>
+    <Setting Name="FolderPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MyFolderPath</Value>
+    </Setting>
+    <Setting Name="ImpersonationFilePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\MyApp\ImpersonatorScript.txt</Value>
+    </Setting>
+    <Setting Name="RegexErrorFilterOracle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">^(ORA-)|(SP2-)|(Warning:.*with compilation errors.)|(\r\nORA-)</Value>
+    </Setting>
+    <Setting Name="NostromoApi" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost/nostromo.svc</Value>
+    </Setting>
+    <Setting Name="FolderRoot" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">MyRoot</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
