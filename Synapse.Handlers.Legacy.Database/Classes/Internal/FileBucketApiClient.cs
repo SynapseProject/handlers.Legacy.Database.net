@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
+using Synapse.Internal.Api.Client;
+
 namespace Synapse.Internal.Nostromo
 {
 	[DataContract]

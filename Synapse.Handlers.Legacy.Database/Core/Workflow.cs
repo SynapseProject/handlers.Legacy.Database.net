@@ -643,7 +643,6 @@ namespace Synapse.Handlers.Legacy.Database
 
 		#region NotifyProgress Events
 		int _cheapSequence = 0;
-		bool _globalCancel = false;
 
 		void p_StepProgress(object sender, AdapterProgressEventArgs e)
 		{
