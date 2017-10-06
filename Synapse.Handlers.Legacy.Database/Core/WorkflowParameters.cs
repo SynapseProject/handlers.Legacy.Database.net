@@ -176,6 +176,11 @@ namespace Synapse.Handlers.Legacy.Database
             Utils.Serialize<WorkflowParameters>( this, true, filePath );
         }
 
+        public virtual String Serialize(bool indented = true)
+        {
+            return Utils.Serialize<WorkflowParameters>( this, indented );
+        }
+
         public static WorkflowParameters Deserialize(string filePath)
         {
             return Utils.DeserializeFile<WorkflowParameters>( filePath );
