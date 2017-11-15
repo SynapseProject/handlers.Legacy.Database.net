@@ -95,9 +95,9 @@ namespace Synapse.Handlers.Legacy.Database
         public void InitIsValid()
         {
             IsValid = true;
-            if (!SetQuotedIdentifier.HasValue)
+            if( !SetQuotedIdentifier.HasValue )
             { SetQuotedIdentifier = false; }
-            if (!string.IsNullOrWhiteSpace(NLS_LANG))
+            if( !string.IsNullOrWhiteSpace( NLS_LANG ) )
             { NLS_LANG = "AMERICAN_AMERICA.US7ASCII"; }
         }
 
@@ -140,7 +140,7 @@ namespace Synapse.Handlers.Legacy.Database
             {
                 Sections = WorkflowSections.LoadAndValidateManifestFile(
                     PreworkManifestFile, RollInManifestFile, RollBackManifestFile, PostworkManifestFile,
-                    ContinueOnError, ShowSqlInOutput, SetQuotedIdentifier.Value);
+                    ContinueOnError, ShowSqlInOutput, SetQuotedIdentifier.Value );
             }
             Sections.NameSections();
             IsValid &= Sections.IsValid;

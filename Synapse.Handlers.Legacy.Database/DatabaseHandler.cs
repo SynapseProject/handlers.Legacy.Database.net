@@ -22,13 +22,15 @@ public class DatabaseHandler : HandlerRuntimeBase
         TextReader reader = new StringReader(startInfo.Parameters);
         wfp = (WorkflowParameters)ser.Deserialize(reader);
 
-        Workflow wf = new Workflow(wfp);
-
-        wf.OnLogMessage = this.OnLogMessage;
-        wf.OnProgress = this.OnProgress;
+        Workflow wf = new Workflow( wfp )
+        {
+            OnLogMessage = this.OnLogMessage,
+            OnProgress = this.OnProgress
+        };
 
         seqNo = 0;
-        OnProgress("Execute", "Starting", StatusType.Running, startInfo.InstanceId, seqNo++);
+        OnProgress( "Execute", "Starting", StatusType.Running, startInfo.InstanceId, seqNo++ );
+        wf.Initialize( ref wfp, startInfo );
         wf.ExecuteAction();
 
         return new ExecuteResult() { Status = StatusType.Complete };
