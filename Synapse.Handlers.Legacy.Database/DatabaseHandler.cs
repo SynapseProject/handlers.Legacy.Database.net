@@ -43,45 +43,54 @@ public class DatabaseHandler : HandlerRuntimeBase
 
     public override object GetParametersInstance()
     {
-        WorkflowParameters wfp = new WorkflowParameters();
+        WorkflowParameters wfp = new WorkflowParameters
+        {
+            DatabaseType = DatabaseType.Oracle,
+            ContinueOnError = true,
+            ShowSqlInOutput = true,
+            SetQuotedIdentifier = true,
+            IsTraditional = true,
+            MigrationType = MigrationType.Prod,
+            IsControlledMigration = true,
+            SuppressSqlServerImpersonation = true,
+            NLS_LANG = "American_America.UTF8",
 
-        wfp.DatabaseType = DatabaseType.Oracle;
-        wfp.ContinueOnError = true;
-        wfp.ShowSqlInOutput = true;
-        wfp.SetQuotedIdentifier = true;
-        wfp.IsTraditional = true;
-        wfp.MigrationType = MigrationType.Prod;
-        wfp.IsControlledMigration = true;
-        wfp.SuppressSqlServerImpersonation = true;
-        wfp.NLS_LANG = "American_America.UTF8";
-
-        wfp.AuditProcedures = new AuditProcedure();
+            AuditProcedures = new AuditProcedure()
+        };
         wfp.AuditProcedures.PostRun = @"value";
         wfp.AuditProcedures.PreRun = @"value";
 
         wfp.Environment = "Development";
         wfp.ApplicationName = "MyApplication";
 
-        wfp.ScriptFolder = new ScriptFolder();
-        wfp.ScriptFolder.ContainerName = "Container";
-        wfp.ScriptFolder.Name = "Name";
-        wfp.ScriptFolder.SourcePath = @"C:\Scripts\";
-        wfp.ScriptFolder.Type = ScriptFolderType.DiskStatic;
-        wfp.ScriptFolder.WorkRoot = "WorkRoot";
+        wfp.ScriptFolder = new ScriptFolder
+        {
+            ContainerName = "Container",
+            Name = "Name",
+            SourcePath = @"C:\Scripts\",
+            Type = ScriptFolderType.DiskStatic,
+            WorkRoot = "WorkRoot"
+        };
 
         wfp.ScriptCacheFolder = @"C:\Scripts\CacheFolder";
         wfp.ScriptStagedFolder = @"C:\Scripts\Staged";
         wfp.ScriptProcessedFolder = @"C:\Scripts\Processed";
         wfp.SchemaFolder = @"C:\Scripts\Schema";
 
-        wfp.DatabaseInstances = new DatabaseInstances();
-        wfp.DatabaseInstances.DatabaseInstance = new List<DatabaseInstance>();
-        DatabaseInstance instance = new DatabaseInstance();
-        instance.Name = "MyDatabaseInstnace";
-        instance.Database = new List<Database>();
-        Database database = new Database();
-        database.Name = "MyDatabaseName";
-        database.Schema = new List<string>();
+        wfp.DatabaseInstances = new DatabaseInstances
+        {
+            DatabaseInstance = new List<DatabaseInstance>()
+        };
+        DatabaseInstance instance = new DatabaseInstance
+        {
+            Name = "MyDatabaseInstnace",
+            Database = new List<Database>()
+        };
+        Database database = new Database
+        {
+            Name = "MyDatabaseName",
+            Schema = new List<string>()
+        };
         database.Schema.Add( "MyDatabaseSchema1" );
         database.Schema.Add( "MyDatabaseSchema2" );
         instance.Database.Add( database );
@@ -92,8 +101,8 @@ public class DatabaseHandler : HandlerRuntimeBase
         wfp.RequestNumber = "12345678";
         wfp.PackageAdapterInstanceId = "87654321";
 
-        String xml = wfp.Serialize( false );
-        xml = xml.Substring( xml.IndexOf( "<" ) );
+        string xml = wfp.Serialize( indented: true );
+        xml = xml.Replace( "\r\n", "\n" ); //this is only to make the XML pretty, like me
         return xml;
     }
 }
